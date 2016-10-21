@@ -1,6 +1,7 @@
 const React = require('react');
 const BlackCard  =require('./BlackCard.jsx');
 var ChoiceButton = require('./ChoiceButton.jsx');
+var ChosenCards = require('./ChosenCards.jsx');
 
 const MainContainer = React.createClass({
 
@@ -11,6 +12,7 @@ const MainContainer = React.createClass({
         <h3>Main Container</h3>
         <BlackCard/>
         <ChoiceButton/>
+        <ChosenCards/>
       </div>
       ) 
 
