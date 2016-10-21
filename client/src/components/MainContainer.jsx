@@ -11,15 +11,15 @@ const MainContainer = React.createClass({
 
   getInitialState: function(){
 
-    return{cards: testCards, selectedCard: null};
+    return{cards: testCards, selectedCard: null, playerChosenCard: null};
 
   },
 
-  onClickHandler: function(card){
+  onCardClickHandler: function(card){
 
     let playerCard = {desc: card}
 
-    this.setState({selectedCard: [playerCard]});
+    this.setState({playerChosenCard: [playerCard]});
 
   },
 
@@ -31,15 +31,21 @@ const MainContainer = React.createClass({
     console.log("choice " + card + " has been selected")
   },
 
+  onButtonClickHandler: function(){
+    console.log("button has been clicked");
+
+    this.setState({selectedCard: this.state.playerChosenCard})
+  },
+
   render: function(){
 
     return (
       <div id="main-container">
         <h3>Main Container</h3>
         <BlackCard onClicked={this.onBlackClicked}/>
-        <ChoiceButton />
+        <ChoiceButton onClickHandler={this.onButtonClickHandler}/>
         <ChosenCards cards={this.state.selectedCard} onClicked={this.onChoiceCardClicked}/>
-        <PlayerHand cards={this.state.cards} onClicked={this.onClickHandler}/>
+        <PlayerHand cards={this.state.cards} onClicked={this.onCardClickHandler}/>
       </div>
       ) 
 

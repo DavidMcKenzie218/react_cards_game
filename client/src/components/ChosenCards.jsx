@@ -8,7 +8,6 @@ const ChosenCards = React.createClass({
     if(this.props.cards){
 
       let cards = this.props.cards.map(function(card, index){
-        console.log(card.desc);
         return (<Card key={index} id="white-card" face={card.desc} onClicked={this.props.onClicked}/>)
       }.bind(this))
 
@@ -22,7 +21,6 @@ const ChosenCards = React.createClass({
   render: function(){ 
 
     let chosenCards = this.chosenCards();
-    console.log(chosenCards)
 
     return (
       <div id="chosen-cards">
