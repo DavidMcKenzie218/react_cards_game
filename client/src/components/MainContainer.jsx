@@ -34,7 +34,16 @@ const MainContainer = React.createClass({
   onButtonClickHandler: function(){
     console.log("button has been clicked");
 
-    this.setState({selectedCard: this.state.playerChosenCard})
+    this.setState({selectedCard: this.state.playerChosenCard});
+
+    let hand = this.state.cards;
+    let index = hand.findIndex(this.findChosenCard)
+    let newHand = hand.slice(index, 1);
+    console.log(newHand);
+  },
+
+  findChosenCard: function(card){
+    return card.desc === this.state.playerChosenCard[0].desc;
   },
 
   render: function(){
