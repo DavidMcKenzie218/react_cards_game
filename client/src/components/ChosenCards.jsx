@@ -1,13 +1,17 @@
 const React = require('react');
 
-const ChosenCards = function(props){
+const ChosenCards = React.createClass({
 
-  return (
-    <div id="chosen-cards">
-      <h4>Chosen Cards</h4>
-    </div>
-    )
+  render: function(){ 
 
-}
+    return (
+      <div id="chosen-cards">
+        <h4>Chosen Cards</h4>
+      </div>
+      )
+
+  }
+
+})
 
 module.exports = ChosenCards;
