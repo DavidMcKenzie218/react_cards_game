@@ -14,7 +14,7 @@ const MainContainer = React.createClass({
         <h3>Main Container</h3>
         <BlackCard/>
         <ChoiceButton/>
-        <ChosenCards/>
+        <ChosenCards cards={[{desc: "Card 1"}, {desc: "Card 2"}]}/>
         <PlayerHand cards={[{desc: "Card 1"}, {desc: "Card 2"}]}/>
       </div>
       ) 

@@ -5,9 +5,10 @@ const PlayerHand = React.createClass({
 
   playerHand: function(){
 
-    var cards = this.props.cards.map(function(card, index){
+    let cards = this.props.cards.map(function(card, index){
       return (<Card key = {index} id="white-card" face={card.desc}/>)
     })
+    
     return cards
 
   },
