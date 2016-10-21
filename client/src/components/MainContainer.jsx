@@ -4,8 +4,16 @@ const ChoiceButton = require('./ChoiceButton.jsx');
 const ChosenCards = require('./ChosenCards.jsx');
 const PlayerHand = require('./PlayerHand.jsx');
 
+const testCards = [{desc: "Card 1"}, {desc: "Card 2"}];
+
 
 const MainContainer = React.createClass({
+
+  getInitialState: function(){
+
+    return{cards: testCards};
+
+  },
 
   render: function(){
 
@@ -14,8 +22,8 @@ const MainContainer = React.createClass({
         <h3>Main Container</h3>
         <BlackCard/>
         <ChoiceButton/>
-        <ChosenCards cards={[{desc: "Card 1"}, {desc: "Card 2"}]}/>
-        <PlayerHand cards={[{desc: "Card 1"}, {desc: "Card 2"}]}/>
+        <ChosenCards cards={this.state.cards}/>
+        <PlayerHand cards={this.state.cards}/>
       </div>
       ) 
 
