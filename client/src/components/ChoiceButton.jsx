@@ -3,7 +3,7 @@ const React = require('react');
 const ChoiceButton = function(props){
 
   return (
-    <div>
+    <div id="choice-button">
       <h4>Choice Button</h4>
       <button>Choose</button>
     </div>
