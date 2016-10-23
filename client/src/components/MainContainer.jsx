@@ -15,7 +15,7 @@ const MainContainer = React.createClass({
 
   getInitialState: function(){
 
-    return{cards: testCards, selectedCard: [{desc: "Please Select a Card"}], playerChosenCard: null, turnPlaying: false, turn: game.playerTurn, playerCount: 2, playerCards: [], aiCards: [], start: false};
+    return{cards: testCards, selectedCard: [{desc: "Please Select a Card"}], playerChosenCard: null, turnPlaying: false, turn: game.playerTurn, playerCount: 2, playerCards: [], aiCards: [], start: false, aiPlayed: false};
 
   },
 
@@ -45,7 +45,7 @@ const MainContainer = React.createClass({
 
   nextTurn: function(){
     game.changeTurn();
-    this.setState({turn: game.playerTurn, turnPlaying: false})
+    this.setState({turn: game.playerTurn, turnPlaying: false, selectedCard: [{desc: "Please Select a Card"}], aiPlayed: false});
   },
 
   playerIsCzar: function(){
@@ -112,13 +112,17 @@ const MainContainer = React.createClass({
     }
   },
 
-  componentWillUpdate: function(){
-  if(this.state.turn === 0){
+  componentWillUpdate: function(nextProps, nextState){
+  if(nextState.turn === 0 && !(this.state.aiPlayed)){
+    console.log("ai played")
       this.aiPlayCards();
+      this.setState({aiPlayed: true})
     }
   },
 
   render: function(){
+
+    console.log(this.state.turn)
 
     return (
       <div id="main-container">
