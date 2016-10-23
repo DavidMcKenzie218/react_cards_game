@@ -16,6 +16,7 @@ describe("Game", function(){
 
   beforeEach(function(){
     game.reset();
+    player.reset();
   })
 
   it("has a turn", function(){
@@ -56,8 +57,14 @@ describe("Game", function(){
 
   it("can increase a players score", function(){
     game.addPlayer(player);
-    game.increaseScore("player")
+    game.increaseScore("player");
     assert.equal(1, player.score)
+  })
+
+  it("can get a players score", function(){
+    game.addPlayer(player);
+    game.increaseScore("player");
+    assert.equal(1, game.getScore("player"));
   })
 
 })

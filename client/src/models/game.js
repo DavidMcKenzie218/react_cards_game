@@ -32,6 +32,14 @@ Game.prototype = {
     })
 
     winner.increaseScore();
+  },
+
+  getScore: function(id){
+    let player = this.players.find(function(player){
+      return player.id === id;
+    }) 
+
+    return player.score; 
   }
 
 }

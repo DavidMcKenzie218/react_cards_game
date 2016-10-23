@@ -9,6 +9,10 @@ Player.prototype = {
 
   increaseScore: function(){
     this.score ++;
+  },
+
+  reset: function(){
+    this.score = 0;
   }
 
 }

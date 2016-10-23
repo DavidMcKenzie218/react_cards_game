@@ -3,8 +3,9 @@ const BlackCard  =require('./BlackCard.jsx');
 const ChoiceButton = require('./ChoiceButton.jsx');
 const ChosenCards = require('./ChosenCards.jsx');
 const PlayerHand = require('./PlayerHand.jsx');
+const Points = require('./Points.jsx')
 const Game = require('../models/game.js');
-const Player = require('../models/player.js')
+const Player = require('../models/player.js');
 
 const testCards = [{desc: "Card 1"}, {desc: "Card 2"}, {desc: "Card 3"}, {desc: "Card 4"}, {desc: "Card 5"}, {desc: "Card 6"}];
 
@@ -62,6 +63,7 @@ const MainContainer = React.createClass({
       let hand = this.state.cards;
       let index = hand.findIndex(this.findChosenCard);
       let newHand = hand.splice(index, 1);
+      game.increaseScore("player");
     }
 
   },
@@ -127,6 +129,7 @@ const MainContainer = React.createClass({
     return (
       <div id="main-container">
         <h3>Main Container</h3>
+        <Points playerPoints={game.getScore("player")} aiOnePoints={game.getScore("ai")} aiTwoPoints={0}/>
         <BlackCard onClicked={this.onBlackClicked}/>
         <ChoiceButton onClickHandler={this.onButtonClickHandler}/>
         <ChosenCards cards={this.state.selectedCard} onClicked={this.onChoiceCardClicked}/>
