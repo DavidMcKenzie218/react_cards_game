@@ -10,24 +10,21 @@ const Player = require('../models/player.js');
 const testCards = [{desc: "Card 1"}, {desc: "Card 2"}, {desc: "Card 3"}, {desc: "Card 4"}, {desc: "Card 5"}, {desc: "Card 6"}];
 
 const game = new Game();
+//This is a global as I don't know where to initilise it at the moment!!!
+//TODO move out of the global scope
 
 
 const MainContainer = React.createClass({
 
   getInitialState: function(){
-
     return{cards: testCards, selectedCard: [{desc: "Please Select a Card"}], playerChosenCard: null, turnPlaying: false, turn: game.playerTurn, playerCount: 2, playerCards: [], aiCards: [], start: false, aiPlayed: false};
-
   },
 
   onCardClickHandler: function(card){
-
     if(this.state.turn != 0){
       let playerCard = {desc: card};
-    
-        this.setState({playerChosenCard: [playerCard]});
+      this.setState({playerChosenCard: [playerCard]});
     }
-
   },
 
   onBlackClicked: function(){
@@ -36,9 +33,7 @@ const MainContainer = React.createClass({
 
   onChoiceCardClicked: function(card){
     if(this.state.turn === 0){
-
       let chosenCard = {desc: card};
-
       game.increaseScore("ai");
 
     }
@@ -50,7 +45,6 @@ const MainContainer = React.createClass({
   },
 
   playerIsCzar: function(){
-    
     if(!this.state.turnPlaying){
       this.setState({turnPlaying: true})
     }
@@ -59,7 +53,6 @@ const MainContainer = React.createClass({
   playerSelectCard: function(){
     if(!this.state.turnPlaying){
       this.setState({selectedCard: this.state.playerChosenCard, turnPlaying: true});
-
       let hand = this.state.cards;
       let index = hand.findIndex(this.findChosenCard);
       let newHand = hand.splice(index, 1);
@@ -69,13 +62,10 @@ const MainContainer = React.createClass({
   },
 
   aiPlayCards: function(){
-
   this.setState({selectedCard: [{desc: "ai one"}, {desc: "ai two"}]});
-
   },
 
   onButtonClickHandler: function(){
-
     if(this.state.turn === 0){
       this.playerIsCzar();
       this.nextTurn();
@@ -123,22 +113,17 @@ const MainContainer = React.createClass({
   },
 
   render: function(){
-
-    console.log(this.state.turn)
-
     return (
       <div id="main-container">
         <h3>Main Container</h3>
-        <Points playerPoints={game.getScore("player")} aiOnePoints={game.getScore("ai")} aiTwoPoints={0}/>
+        <Points playerPoints={game.getScore("player")} aiOnePoints={game.getScore("ai")}/>
         <BlackCard onClicked={this.onBlackClicked}/>
         <ChoiceButton onClickHandler={this.onButtonClickHandler}/>
         <ChosenCards cards={this.state.selectedCard} onClicked={this.onChoiceCardClicked}/>
         <PlayerHand cards={this.state.playerHand} onClicked={this.onCardClickHandler}/>
       </div>
       ) 
-
   }
-
 })
 
 module.exports = MainContainer;
