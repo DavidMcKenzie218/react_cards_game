@@ -34,7 +34,7 @@ describe("Game", function(){
     for (var i = 0; i < 4; i++){
       game.addPlayer({id: ("player" + i), score: 0});
     }
-    for (var i = 0; i < 5; i++){
+    for (var i = 0; i < 4; i++){
       game.changeTurn();
     }
     assert.equal(0, game.playerTurn);

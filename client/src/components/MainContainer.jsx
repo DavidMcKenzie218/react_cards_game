@@ -45,8 +45,7 @@ const MainContainer = React.createClass({
 
   nextTurn: function(){
     game.changeTurn();
-    this.setState({turn: (game.playerTurn), turnPlaying: false})
-    console.log(this.state.turn);
+    this.setState({turn: game.playerTurn, turnPlaying: false})
   },
 
   playerIsCzar: function(){

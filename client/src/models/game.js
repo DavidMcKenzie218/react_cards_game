@@ -13,7 +13,7 @@ Game.prototype = {
   },
 
   changeTurn: function(){
-    if(this.playerTurn < this.playerCount){
+    if(this.playerTurn < (this.playerCount - 1)){
       this.playerTurn ++;  
     }else{
       this.playerTurn = 0;
