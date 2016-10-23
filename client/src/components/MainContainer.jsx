@@ -40,6 +40,8 @@ const MainContainer = React.createClass({
 
       let chosenCard = {desc: card};
 
+      game.increaseScore("ai");
+
       console.log(chosenCard);
 
     }

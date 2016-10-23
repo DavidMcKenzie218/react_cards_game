@@ -25,6 +25,14 @@ Game.prototype = {
   addPlayer: function(player){
     this.players.push(player);
     this.playerCount ++;
+  },
+
+  increaseScore: function(id){
+    let winner = this.players.find(function(player){
+      return player.id = id;
+    })
+
+    winner.increaseScore();
   }
 
 }

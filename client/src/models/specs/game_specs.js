@@ -54,6 +54,10 @@ describe("Game", function(){
     assert.deepEqual(1, game.playerCount)
   })
 
-
+  it("can increase a players score", function(){
+    game.addPlayer(player);
+    game.increaseScore("player")
+    assert.equal(1, player.score)
+  })
 
 })
