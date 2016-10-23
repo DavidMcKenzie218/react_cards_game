@@ -8,7 +8,7 @@ const Card = function(props){
 
   return (
     <div id={props.id} onClick={handleClick}>
-      <h4>{props.face}</h4>
+      <p>{props.face}</p>
     </div>
     )
 
