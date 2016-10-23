@@ -1,17 +1,19 @@
-const Game = function(playerCount){
+const Game = function(){
   this.playerTurn = 0
-  this.playerCount = playerCount;
   this.players = [];
+  this.playerCount = 0;
 }
 
 Game.prototype = {
 
   reset: function(){
-    this.playerTurn = 0;
     this.players = [];
+    this.playerTurn = 0;
+    this.playerCount = 0;
   },
 
   changeTurn: function(){
+    console.log(this.playerCount)
     if(this.playerTurn < this.playerCount){
       this.playerTurn ++;  
     }else{
@@ -22,6 +24,7 @@ Game.prototype = {
 
   addPlayer: function(player){
     this.players.push(player);
+    this.playerCount ++;
   }
 
 }

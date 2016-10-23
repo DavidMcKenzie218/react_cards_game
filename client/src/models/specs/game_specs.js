@@ -6,7 +6,7 @@ describe("Game", function(){
   var game;
 
   before(function(){
-    game = new Game(4);
+    game = new Game();
   })
 
   beforeEach(function(){
@@ -18,11 +18,17 @@ describe("Game", function(){
   })
 
   it("can increase in turn", function(){
+    for(var i = 0; i < 2; i++){
+      game.addPlayer({id: "player", score: 0});
+    }
     game.changeTurn();
     assert.equal(1, game.playerTurn);
   })
 
   it("can only increase to the amount of players playing", function(){
+    for (var i = 0; i < 4; i++){
+      game.addPlayer({id: ("player" + i), score: 0});
+    }
     for (var i = 0; i < 5; i++){
       game.changeTurn();
     }
