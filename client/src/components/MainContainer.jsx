@@ -34,17 +34,11 @@ const MainContainer = React.createClass({
   },
 
   onChoiceCardClicked: function(card){
-    console.log("choice " + card + " has been selected");
     if(this.state.turn === 0){
 
       let chosenCard = {desc: card};
 
       game.increaseScore("ai");
-
-      console.log(chosenCard);
-      // console.log(ai)
-      // console.log(game.players)
-      console.log(game.players)
 
     }
   },
@@ -58,8 +52,6 @@ const MainContainer = React.createClass({
   playerIsCzar: function(){
     if(!this.state.turnPlaying){
       this.setState({selectedCard: this.state.playerChosenCard, turnPlaying: true})
-
-      console.log(this.state.selectedCard);
     }
   },
 
@@ -75,14 +67,13 @@ const MainContainer = React.createClass({
   },
 
   onButtonClickHandler: function(){
-    console.log("button has been clicked");
-    console.log(this.state.turn);
 
     if(this.state.turn === 0){
       this.playerIsCzar();
       this.nextTurn();
     }else{
       this.playerSelectCard();
+      this.nextTurn();
     }
   },
 
