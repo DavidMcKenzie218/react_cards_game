@@ -13,7 +13,6 @@ Game.prototype = {
   },
 
   changeTurn: function(){
-    console.log(this.playerCount)
     if(this.playerTurn < this.playerCount){
       this.playerTurn ++;  
     }else{
@@ -29,7 +28,7 @@ Game.prototype = {
 
   increaseScore: function(id){
     let winner = this.players.find(function(player){
-      return player.id = id;
+      return player.id === id;
     })
 
     winner.increaseScore();

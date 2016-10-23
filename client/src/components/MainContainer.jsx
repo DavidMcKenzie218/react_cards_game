@@ -9,8 +9,7 @@ const Player = require('../models/player.js')
 const testCards = [{desc: "Card 1"}, {desc: "Card 2"}, {desc: "Card 3"}, {desc: "Card 4"}, {desc: "Card 5"}, {desc: "Card 6"}];
 
 const game = new Game();
-const player = new Player("player");
-const aiOne = new Player("ai");
+
 
 const MainContainer = React.createClass({
 
@@ -43,6 +42,9 @@ const MainContainer = React.createClass({
       game.increaseScore("ai");
 
       console.log(chosenCard);
+      // console.log(ai)
+      // console.log(game.players)
+      console.log(game.players)
 
     }
   },
@@ -103,8 +105,10 @@ const MainContainer = React.createClass({
 
   componentWillMount: function(){
     if(this.state.turn === 0){
+      const player = new Player("player");
+      const ai = new Player("ai");
       game.addPlayer(player);
-      game.addPlayer(aiOne);
+      game.addPlayer(ai);
       this.dealCards();
     }
   },
