@@ -10,7 +10,12 @@ describe("Game", function(){
   })
 
   it("has a turn", function(){
-    assert.equal(0, game.playerTurn)
+    assert.equal(0, game.playerTurn);
+  })
+
+  it("can increase in turn", function(){
+    game.changeTurn();
+    assert.equal(1, game.playerTurn);
   })
 
 })
