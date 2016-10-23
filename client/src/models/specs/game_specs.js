@@ -33,4 +33,9 @@ describe("Game", function(){
     assert.deepEqual([], game.players);
   })
 
+  it("has a player", function(){
+    game.addPlayer({id: "player1" ,score: 0});
+    assert.deepEqual([{id: "player1" ,score: 0}], game.players)
+  })
+
 })

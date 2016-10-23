@@ -18,6 +18,10 @@ Game.prototype = {
       this.playerTurn = 0;
     }
     
+  },
+
+  addPlayer: function(player){
+    this.players.push(player);
   }
 
 }

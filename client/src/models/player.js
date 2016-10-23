@@ -1,6 +1,7 @@
-const Player = function(){
+const Player = function(id){
 
   this.score = 0;
+  this.id = id;
 
 }
 

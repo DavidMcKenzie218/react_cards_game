@@ -6,7 +6,7 @@ describe("Player", function(){
   let player;
 
   before(function(){
-    player = new Player();
+    player = new Player("player1");
   })
 
   it("Has a score", function(){
@@ -16,6 +16,10 @@ describe("Player", function(){
   it("Can increse the score", function(){
     player.increaseScore();
     assert.equal(1, player.score);
+  })
+
+  it("has an id", function(){
+    assert.equal("player1", player.id);
   })
 
 })
