@@ -3,6 +3,7 @@ const BlackCard  =require('./BlackCard.jsx');
 const ChoiceButton = require('./ChoiceButton.jsx');
 const ChosenCards = require('./ChosenCards.jsx');
 const PlayerHand = require('./PlayerHand.jsx');
+const Game = require('../models/game.js');
 
 const testCards = [{desc: "Card 1"}, {desc: "Card 2"}];
 

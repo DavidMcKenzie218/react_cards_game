@@ -1,11 +1,21 @@
-const Game = function(){
+const Game = function(playerCount){
   this.playerTurn = 0
+  this.playerCount = playerCount;
 }
 
 Game.prototype = {
 
+  reset: function(){
+    this.playerTurn = 0;
+  },
+
   changeTurn: function(){
-    this.playerTurn ++;
+    if(this.playerTurn < this.playerCount){
+      this.playerTurn ++;  
+    }else{
+      this.playerTurn = 0;
+    }
+    
   }
 
 }
