@@ -7,7 +7,7 @@ const Game = require('../models/game.js');
 
 const testCards = [{desc: "Card 1"}, {desc: "Card 2"}, {desc: "Card 3"}, {desc: "Card 4"}, {desc: "Card 5"}, {desc: "Card 6"}];
 
-const game = new Game(2)
+const game = new Game()
 
 const MainContainer = React.createClass({
 
@@ -99,6 +99,8 @@ const MainContainer = React.createClass({
   componentWillMount: function(){
     if(this.state.turn === 0){
       this.dealCards();
+      game.addPlayer({id: "player", score: 0});
+      game.addPlayer({id: "ai", score: 0})
     }
   },
 

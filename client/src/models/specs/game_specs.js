@@ -1,12 +1,17 @@
 const assert = require('assert');
 const Game = require('../game.js');
+const Player = require("../player.js");
 
 describe("Game", function(){
 
   var game;
+  var player;
+  var ai;
 
   before(function(){
     game = new Game();
+    player = new Player("player");
+    ai = new Player("ai");
   })
 
   beforeEach(function(){
@@ -43,5 +48,12 @@ describe("Game", function(){
     game.addPlayer({id: "player1" ,score: 0});
     assert.deepEqual([{id: "player1" ,score: 0}], game.players)
   })
+
+  it("can add player objects", function(){
+    game.addPlayer(player);
+    assert.deepEqual(1, game.playerCount)
+  })
+
+
 
 })
