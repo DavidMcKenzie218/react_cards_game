@@ -6,11 +6,14 @@ const PlayerHand = require('./PlayerHand.jsx');
 const Game = require('../models/game.js');
 
 const testCards = [{desc: "Card 1"}, {desc: "Card 2"}, {desc: "Card 3"}, {desc: "Card 4"}, {desc: "Card 5"}, {desc: "Card 6"}];
+
+const game = new Game(2)
+
 const MainContainer = React.createClass({
 
   getInitialState: function(){
 
-    return{cards: testCards, selectedCard: [{desc: "Selected Card"}], playerChosenCard: null, turnPlaying: false, turn: 0, playerCount: 2, playerCards: [], aiCards: []};
+    return{cards: testCards, selectedCard: [{desc: "Selected Card"}], playerChosenCard: null, turnPlaying: false, turn: game.playerTurn, playerCount: 2, playerCards: [], aiCards: []};
 
   },
 
@@ -40,7 +43,8 @@ const MainContainer = React.createClass({
   },
 
   nextTurn: function(){
-    this.setState({turn: (this.state.turn =+ 1), turnPlaying: false})
+    game.changeTurn();
+    this.setState({turn: (game.playerTurn), turnPlaying: false})
     console.log(this.state.turn)
   },
 
