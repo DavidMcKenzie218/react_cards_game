@@ -26,7 +26,11 @@ describe("Game", function(){
     for (var i = 0; i < 5; i++){
       game.changeTurn();
     }
-    assert.equal(0, game.playerTurn)
+    assert.equal(0, game.playerTurn);
+  })
+
+  it("can have players", function(){
+    assert.deepEqual([], game.players);
   })
 
 })
