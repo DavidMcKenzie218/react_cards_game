@@ -37,9 +37,8 @@ const MainContainer = React.createClass({
     this.setState({selectedCard: this.state.playerChosenCard});
 
     let hand = this.state.cards;
-    let index = hand.findIndex(this.findChosenCard)
-    let newHand = hand.slice(index, 1);
-    console.log(newHand);
+    let index = hand.findIndex(this.findChosenCard);
+    let newHand = hand.splice(index, 1);
   },
 
   findChosenCard: function(card){
