@@ -4,10 +4,13 @@ const ChoiceButton = require('./ChoiceButton.jsx');
 const ChosenCards = require('./ChosenCards.jsx');
 const PlayerHand = require('./PlayerHand.jsx');
 const Game = require('../models/game.js');
+const Player = require('../models/player.js')
 
 const testCards = [{desc: "Card 1"}, {desc: "Card 2"}, {desc: "Card 3"}, {desc: "Card 4"}, {desc: "Card 5"}, {desc: "Card 6"}];
 
-const game = new Game()
+const game = new Game();
+const player = new Player("player");
+const aiOne = new Player("ai");
 
 const MainContainer = React.createClass({
 
@@ -87,7 +90,7 @@ const MainContainer = React.createClass({
     let playerHand = [];
     let aiHand = [];
     for(var i = 0; i < this.state.cards.length; i++){
-      if(i%2){
+      if(i%this.state.playerCount){
         playerHand.push(this.state.cards[i]);
       }else{
         aiHand.push(this.state.cards[i])
@@ -98,9 +101,9 @@ const MainContainer = React.createClass({
 
   componentWillMount: function(){
     if(this.state.turn === 0){
+      game.addPlayer(player);
+      game.addPlayer(aiOne);
       this.dealCards();
-      game.addPlayer({id: "player", score: 0});
-      game.addPlayer({id: "ai", score: 0})
     }
   },
 
