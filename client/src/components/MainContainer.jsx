@@ -12,7 +12,7 @@ const MainContainer = React.createClass({
 
   getInitialState: function(){
 
-    return{cards: testCards, selectedCard: null, playerChosenCard: null};
+    return{cards: testCards, selectedCard: null, playerChosenCard: null, turnPlaying: false};
 
   },
 
@@ -35,11 +35,13 @@ const MainContainer = React.createClass({
   onButtonClickHandler: function(){
     console.log("button has been clicked");
 
-    this.setState({selectedCard: this.state.playerChosenCard});
+    if(!this.state.turnPlaying){
+      this.setState({selectedCard: this.state.playerChosenCard, turnPlaying: true});
 
-    let hand = this.state.cards;
-    let index = hand.findIndex(this.findChosenCard);
-    let newHand = hand.splice(index, 1);
+      let hand = this.state.cards;
+      let index = hand.findIndex(this.findChosenCard);
+      let newHand = hand.splice(index, 1);
+    }
   },
 
   findChosenCard: function(card){
