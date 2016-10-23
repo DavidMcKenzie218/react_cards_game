@@ -13,4 +13,9 @@ describe("Player", function(){
     assert.equal(0, player.score);
   })
 
+  it("Can increse the score", function(){
+    player.increaseScore();
+    assert.equal(1, player.score);
+  })
+
 })

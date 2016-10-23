@@ -4,4 +4,12 @@ const Player = function(){
 
 }
 
+Player.prototype = {
+
+  increaseScore: function(){
+    this.score ++;
+  }
+
+}
+
 module.exports = Player;
